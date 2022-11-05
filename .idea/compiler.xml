@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Gradle Imported" enabled="true">
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="false">
+          <entry name="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.projectlombok/lombok/1.18.22/9c08ea24c6eb714e2d6170e8122c069a0ba9aacf/lombok-1.18.22.jar" />
+        </processorPath>
+        <module name="Recipes.Topics-Multiple_constructors-Employee.test" />
+        <module name="Recipes.Topics-Branching_statements-Theory.main" />
+        <module name="Recipes.Topics-Comparing_dates_and_time-The_New_Year_is_coming__or_not_.test" />
+        <module name="Recipes.Topics-Runtime_type_checking-Theory.test" />
+        <module name="Recipes.Recipes-task-build-classes-java.test" />
+        <module name="Recipes.Topics-Builder-Builder.test" />
+        <module name="Recipes.Topics-Comparing_dates_and_time-Theory.main" />
+        <module name="Recipes.Recipes-task-build-tmp.main" />
+        <module name="Recipes.Topics-Reflection_basics-Field_count.main" />
+        <module name="Recipes.Recipes-task-build-generated-sources-headers-java.test" />
+        <module name="Recipes.Topics-The_Map_interface-Counting_words.test" />
+        <module name="Recipes.Topics-Builder-Describe_the_builder.test" />
+        <module name="Recipes.Recipes-task.main" />
+        <module name="Recipes.Topics-Multiple_constructors-Theory.main" />
+        <module name="Recipes.Topics-The_Map_interface-Sherlock_Holmes_and_the_mystery_of_anagrams.main" />
+        <module name="Recipes.Recipes-task-build-test-results.test" />
+        <module name="Recipes.Topics-HashMap-Remove_long_names.test" />
+        <module name="Recipes.util.main" />
+        <module name="Recipes.Topics-Runtime_type_checking-Theory.main" />
+        <module name="Recipes.Topics-Comparing_dates_and_time-Don't_be_late_again.main" />
+        <module name="Recipes.Topics-Comparing_dates_and_time-Is_the_date_between_the_two_other_dates.test" />
+        <module name="Recipes.Topics-Comparing_dates_and_time-Don't_be_late_again.test" />
+        <module name="Recipes.Recipes-task-build-reports-tests.main" />
+        <module name="Recipes.Topics-Branching_statements-The_integer_barrier.test" />
+        <module name="Recipes.Topics-HashMap-Theory.main" />
+        <module name="Recipes.Topics-Multiple_constructors-Employee.main" />
+        <module name="Recipes.util.test" />
+        <module name="Recipes.Topics-Builder-Describe_the_builder.main" />
+        <module name="Recipes.Topics-Runtime_type_checking-Counting_2D_shapes.test" />
+        <module name="Recipes.Topics-Builder-Subway_Sandwich.main" />
+        <module name="Recipes.Recipes-task-build-test-results.main" />
+        <module name="Recipes.Topics-Comparing_dates_and_time-Find_the_latest_date-time.main" />
+        <module name="Recipes.Topics-HashMap-Remove_long_names.main" />
+        <module name="Recipes.Topics-The_Map_interface-Sherlock_Holmes_and_removing_of_characters.test" />
+        <module name="Recipes.Topics-Builder-Theory.main" />
+        <module name="Recipes.Topics-Reflection_basics-Theory.test" />
+        <module name="Recipes.Recipes-task-build-reports-tests.test" />
+        <module name="Recipes.Topics-Branching_statements-The_integer_barrier.main" />
+        <module name="Recipes.Topics-The_Map_interface-Counting_words.main" />
+        <module name="Recipes.Recipes-task-build-generated-sources-annotationProcessor-java.test" />
+        <module name="Recipes.Recipes-task-build-tmp.test" />
+        <module name="Recipes.Topics-Comparing_dates_and_time-Theory.test" />
+        <module name="Recipes.Topics-Comparing_dates_and_time-The_New_Year_is_coming__or_not_.main" />
+        <module name="Recipes.Topics-Comparing_dates_and_time-Is_the_date_between_the_two_other_dates.main" />
+        <module name="Recipes.Topics-Builder-Robot_Builder.test" />
+        <module name="Recipes.Topics-Runtime_type_checking-Counting_2D_shapes.main" />
+        <module name="Recipes.Topics-HashMap-The_same_pairs.test" />
+        <module name="Recipes.Topics-Builder-Subway_Sandwich.test" />
+        <module name="Recipes.Topics-The_Map_interface-Theory.main" />
+        <module name="Recipes.Topics-Reflection_basics-Field_count.test" />
+        <module name="Recipes.Topics-Branching_statements-Theory.test" />
+        <module name="Recipes.Recipes-task-build-classes-java.main" />
+        <module name="Recipes.Topics-Comparing_dates_and_time-Find_the_latest_date-time.test" />
+        <module name="Recipes.Recipes-task.test" />
+        <module name="Recipes.Recipes-task-build-generated-sources-headers-java.main" />
+        <module name="Recipes.Topics-Builder-Robot_Builder.main" />
+        <module name="Recipes.Topics-HashMap-Theory.test" />
+        <module name="Recipes.Topics-The_Map_interface-Sherlock_Holmes_and_removing_of_characters.main" />
+        <module name="Recipes.Topics-Reflection_basics-Theory.main" />
+        <module name="Recipes.Topics-The_Map_interface-Theory.test" />
+        <module name="Recipes.Recipes-task-build-generated-sources-annotationProcessor-java.main" />
+        <module name="Recipes.Topics-The_Map_interface-Sherlock_Holmes_and_the_mystery_of_anagrams.test" />
+        <module name="Recipes.Topics-Builder-Builder.main" />
+        <module name="Recipes.Topics-HashMap-The_same_pairs.main" />
+        <module name="Recipes.Topics-Builder-Theory.test" />
+        <module name="Recipes.Topics-Multiple_constructors-Theory.test" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel target="17">
+      <module name="Recipes.Recipes-task-build-classes-java.main" target="11" />
+      <module name="Recipes.Recipes-task-build-generated-sources-annotationProcessor-java.main" target="11" />
+      <module name="Recipes.Recipes-task-build-generated-sources-headers-java.main" target="11" />
+      <module name="Recipes.Recipes-task-build-reports-tests.main" target="11" />
+      <module name="Recipes.Recipes-task-build-test-results.main" target="11" />
+      <module name="Recipes.Recipes-task-build-tmp.main" target="11" />
+      <module name="Recipes.Recipes-task.main" target="11" />
+      <module name="Recipes.Topics-Branching_statements-The_integer_barrier.main" target="11" />
+      <module name="Recipes.Topics-Branching_statements-Theory.main" target="11" />
+      <module name="Recipes.Topics-Builder-Builder.main" target="11" />
+      <module name="Recipes.Topics-Builder-Describe_the_builder.main" target="11" />
+      <module name="Recipes.Topics-Builder-Robot_Builder.main" target="11" />
+      <module name="Recipes.Topics-Builder-Subway_Sandwich.main" target="11" />
+      <module name="Recipes.Topics-Builder-Theory.main" target="11" />
+      <module name="Recipes.Topics-Comparing_dates_and_time-Don't_be_late_again.main" target="11" />
+      <module name="Recipes.Topics-Comparing_dates_and_time-Find_the_latest_date-time.main" target="11" />
+      <module name="Recipes.Topics-Comparing_dates_and_time-Is_the_date_between_the_two_other_dates.main" target="11" />
+      <module name="Recipes.Topics-Comparing_dates_and_time-The_New_Year_is_coming__or_not_.main" target="11" />
+      <module name="Recipes.Topics-Comparing_dates_and_time-Theory.main" target="11" />
+      <module name="Recipes.Topics-HashMap-Remove_long_names.main" target="11" />
+      <module name="Recipes.Topics-HashMap-The_same_pairs.main" target="11" />
+      <module name="Recipes.Topics-HashMap-Theory.main" target="11" />
+      <module name="Recipes.Topics-Multiple_constructors-Employee.main" target="11" />
+      <module name="Recipes.Topics-Multiple_constructors-Theory.main" target="11" />
+      <module name="Recipes.Topics-Reflection_basics-Field_count.main" target="11" />
+      <module name="Recipes.Topics-Reflection_basics-Theory.main" target="11" />
+      <module name="Recipes.Topics-Runtime_type_checking-Counting_2D_shapes.main" target="11" />
+      <module name="Recipes.Topics-Runtime_type_checking-Theory.main" target="11" />
+      <module name="Recipes.Topics-The_Map_interface-Counting_words.main" target="11" />
+      <module name="Recipes.Topics-The_Map_interface-Sherlock_Holmes_and_removing_of_characters.main" target="11" />
+      <module name="Recipes.Topics-The_Map_interface-Sherlock_Holmes_and_the_mystery_of_anagrams.main" target="11" />
+      <module name="Recipes.Topics-The_Map_interface-Theory.main" target="11" />
+      <module name="Recipes.util.main" target="11" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

@@ -1,0 +1,23 @@
+type: choice
+is_multiple_choice: false
+options:
+- text: 'separates complex object construction from its representation '
+- text: converts the interface of a class into another interface the clients expect
+- text: provides a unified interface to a set of interfaces in a subsystem
+- text: decouples an abstraction from its implementation
+files:
+- name: src/Task.java
+  visible: true
+  text: |
+    // You can experiment here, it won’t be checked
+
+    public class Task {
+      public static void main(String[] args) {
+        // put your code here
+      }
+    }
+  learner_created: false
+feedback_link: https://hyperskill.org/learn/step/5131#comment
+status: Solved
+record: -1
+local_check: false

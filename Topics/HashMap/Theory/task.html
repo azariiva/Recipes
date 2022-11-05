@@ -1,0 +1,119 @@
+<h2>HashMap</h2>
+<p>As you already know, there are different ways to create a map filled with key-values pairs. Today it's time to take a good look at the <code class="language-java">HashMap</code>:  an effective instrument that is probably the most popular implementation of the <code class="language-java">Map</code> interface. It provides very fast access to its elements and falls within the top ten questions at Java job interviews.</p>
+<h5 id="how-does-it-work">How does it work?</h5>
+<p>The <code class="language-java">HashMap</code> class represents a map backed by a <strong>hash table</strong>. To understand what it is let's start with the internal organization of <code class="language-java">HashMap</code>. </p>
+<p>If you look inside  <code class="language-java">HashMap</code> you will see that it's an array with <strong>buckets </strong>as its elements. The default size of such an array is 16.</p>
+<p style="text-align: center;"><img alt="" height="120" src="https://ucarecdn.com/ca6461ac-bdb2-4186-9e4c-5ec70d0044c9/" width="734"/></p>
+<p>What could be a "bucket" in a programming language? Actually, each bucket is a linked list, meaning there are 16 linked lists for storing key-value pairs. And each key-value pair is an element of a linked list. </p>
+<p style="text-align: center;"><img alt="" height="502" src="https://ucarecdn.com/e0fc467a-e448-4639-acd4-14b1ce5be66e/" width="878"/></p>
+<p>Now we need a special structure to store the key-value pairs as well. This structure is a class called <code class="language-java">Node</code>. It has four fields: the first one is hash, then there's our key and value,  and the last one contains a link to the next pair. </p>
+<p style="text-align: center;"><img alt="" height="171" src="https://ucarecdn.com/279234f5-9b11-4810-8404-9d1a54f96f76/" width="165"/></p>
+<p>Now you know how <code class="language-java">HashMap</code> looks inside and are ready to learn what is happening when you put an element in it. Any ideas on how a <code class="language-java">HashMap</code> decides where to put your key-value pair?</p>
+<p>Here's what happens: first, it generates the hash code of your key. Next, it generates the index of the bucket which depends on the calculated hash. <br/>
+In the formula below <code class="language-java">n</code> is the number of buckets:</p>
+<pre><code class="language-java">index = hash &amp; (n - 1)</code></pre>
+<p>Alternatively, you can calculate the index as:</p>
+<pre><code class="language-java">index = hash % n</code></pre>
+<p>It will give the same result, but works slower than a bitwise operation. Also, you should know that <code class="language-java">n</code> is always a power of 2. This is guaranteed by the <code class="language-java">tableSizeFor</code> method inside the <code class="language-java">HashMap</code> class.</p>
+<details><summary>If you are asking yourself why these two formulas are equivalent, here is a short explanation</summary>
+<p>First, let's think how the <code class="language-java">%</code> operation works when <code class="language-java">n</code> is a power of 2 and <code class="language-java">hash</code> is a positive whole number. For clarity, we'll set <code class="language-java">n</code> as 4:</p>
+<table border="1" cellpadding="1" cellspacing="1" style="width: 500px;">
+<tbody>
+<tr>
+<td style="text-align: center;">hash</td>
+<td style="text-align: center;">hash % n</td>
+</tr>
+<tr>
+<td style="text-align: center;">00000001</td>
+<td style="text-align: center;">00000001</td>
+</tr>
+<tr>
+<td style="text-align: center;">00000010</td>
+<td style="text-align: center;">00000010</td>
+</tr>
+<tr>
+<td style="text-align: center;">00000011</td>
+<td style="text-align: center;">00000011</td>
+</tr>
+<tr>
+<td style="text-align: center;">00000<span style="color: #ff4363;">1</span>00</td>
+<td style="text-align: center;">00000000</td>
+</tr>
+<tr>
+<td style="text-align: center;">00000<span style="color: #ff4363;">1</span>01</td>
+<td style="text-align: center;">00000001</td>
+</tr>
+<tr>
+<td style="text-align: center;">00000<span style="color: #ff4363;">1</span>10</td>
+<td style="text-align: center;">00000010</td>
+</tr>
+<tr>
+<td style="text-align: center;">00000<span style="color: #ff4363;">1</span>11</td>
+<td style="text-align: center;">00000011</td>
+</tr>
+<tr>
+<td style="text-align: center;">0000<span style="color: #ff4363;">10</span>00</td>
+<td style="text-align: center;">00000000</td>
+</tr>
+</tbody>
+</table>
+<p>As you can see, this mod operation removes all the bits that are more significant or equal than <code class="language-java">n</code> (here <code class="language-java">n = 00000100</code>).</p>
+<p>On the other hand, what happens in the bit world when you do <code class="language-java">hash &amp; (n - 1)</code>? Again, you remove more significant bits, because<br/>
+<code class="language-java">n - 1</code> always looks like <code class="language-java">00000011</code> (zeros followed by ones).</p>
+<p>Now that <code class="language-java">HashMap</code> has decided which linked list will store your pair, it will check if this linked list is empty. If it is, your pair will be the start-element of that linked list. Otherwise, your pair will become a new tail.</p>
+</details>
+<p>Thanks to the hash function, this implementation provides <strong>constant-time</strong> performance for <code class="language-java">get</code> and <code class="language-java">put</code> methods! Constant-time means O(1) complexity. </p>
+<p>Now that you've mastered the theory of the <code class="language-java">HashMap</code> organization, it's time to consider some examples.</p>
+<h5 id="time-to-play">Time to play!</h5>
+<p><img alt="" src="https://ucarecdn.com/b4a25cb4-b927-433a-acd4-0e21f5e22115/"/></p>
+<p></p><div class="alert alert-primary">To get similar debugging view: right click on the map and choose "View as" —&gt; "Object". Then right click on the element and choose "View as" —&gt; "Object". Clicks doesn't depend on each other.</div>
+<pre><code class="language-java">Map&lt;Integer, String&gt; characters = new HashMap&lt;&gt;();
+
+characters.put(1000, "Cinderella");</code></pre>
+<p>Here we've created a <code class="language-java">HashMap</code> called <code class="language-java">characters</code> and added <code class="language-java">"Cinderella"</code> in it.  There are exactly 16 buckets. The class has calculated that the index of the new bucket would be 8. </p>
+<p>In the picture, you can see that <code class="language-java">"Cinderella"</code> is the first <code class="language-java">Node</code> of the 8th linked list. As we've said earlier, <code class="language-java">Node</code> has four fields. In our example, the hash code and the key are the same. For <code class="language-java">Integer</code> class hash code is the same as its value. Note that every class has different logic for calculating hash code. You can override the method <code class="language-java">hashCode</code> as well. Also, it's good to know that it is possible to create a pair in which the key would be <code class="language-java">null</code>. The hash code of the null-key is always zero. Now let's add more characters and see what will happen:</p>
+<p><img alt="" src="https://ucarecdn.com/9326c834-859a-4f32-b579-3db8e1ad36fa/"/></p>
+<pre><code class="language-java">characters.put(2000, "Prince");
+characters.put(3000, "Evil stepmother");
+
+// {2000=Prince, 1000=Cinderella, 3000=Evil stepmother}
+System.out.println(characters); </code></pre>
+<p>Character <code class="language-java">"Prince"</code> decided to be in the bucket with index 0. He is also the first <code class="language-java">Node</code> in his linked list. But a stepmother can't be far away from poor Cinderella! <code class="language-java">"Evil stepmother"</code>is also staying in the bucket with the number 8. As you can see, the field <code class="language-java">next</code> in Cinderella's <code class="language-java">Node</code> has changed. Now the field has a link to the next character, <code class="language-java">"Evil stepmother"</code>. Because the <code class="language-java">"Evil stepmother"</code> became the last one in this linked list, her field <code class="language-java">next</code> has value <code class="language-java">null</code>.</p>
+<p>Let's try to remove an element from <code class="language-java">HashMap</code> <code class="language-java">characters</code>:</p>
+<p><img alt="" src="https://ucarecdn.com/2c5f3f47-419e-415b-9f59-e10599978489/"/></p>
+<pre><code class="language-java">characters.remove(3000); // get rid of Evil stepmother
+
+System.out.println(characters.get(3000)); // null</code></pre>
+<p>An element <code class="language-java">"Evil stepmother"</code> was deleted. <code class="language-java">"Cinderella"</code> became the first and the last element of the eighth linked list again. To see the structure of your <code class="language-java">HashMap </code>in the same way as in the pictures, you can use Debug mode in IntelliJ IDEA. There are a lot of different methods in the class <code class="language-java">HashMap</code>. We will only look at some of them.Getting an element by a key:</p>
+<pre><code class="language-java">System.out.println(characters.get(1000)); // Cinderella</code></pre>
+<p>Method <code class="language-java">putIfAbsent</code>:</p>
+<pre><code class="language-java">characters.putIfAbsent(2000,"Another Prince"); // nothing happens, because there is already a Prince
+
+System.out.println(characters.get(2000)); // Prince</code></pre>
+<p>Check, if there is a concrete key or a value inside of <code class="language-java">HashMap</code>:</p>
+<pre><code class="language-java">System.out.println(characters.containsKey(1000)); // true
+System.out.println(characters.containsValue("Fairy Godmother")); // false</code></pre>
+<h5 id="for-the-interview">For the interview</h5>
+<p>Let's consider some interesting moments. Firstly, you, as a software engineer, can choose what number of buckets will be in <code class="language-java">HashMap</code>. Remember that the initial capacity is always a power of two, even if you input something like "5".</p>
+<pre><code class="language-java">Map&lt;String, String&gt; map = new HashMap&lt;&gt;(32);</code></pre>
+<p>Another important point is collisions. There is always a chance of a situation when two distinct keys will generate the same hash code. This situation is called a <strong>collision</strong>.</p>
+<pre><code class="language-java">map.put("AaAaAa","First");
+map.put("BBBBBB","Second");</code></pre>
+<p>If the two keys have the same hash code but the keys are different, the second element will be put right after the first one. In this example keys <code class="language-java">"AaAaAa"</code> and <code class="language-java">"BBBBBB"</code> have the same hash code, and <code class="language-java">Node</code> with the value <code class="language-java">"First"</code> will have a link to the <code class="language-java">Node</code> with the value <code class="language-java">"Second"</code>.</p>
+<p><img alt="" src="https://ucarecdn.com/480c76ba-ce82-4934-b840-a6bb75a6e02d/"/></p>
+<p>Method  <code class="language-java">equals</code> is used for checking if the two keys are different. If they are the same the second pair will replace the first one. If there are a lot of collisions in a <code class="language-java">HashMap</code>  the complexity for <code class="language-java">get</code> and <code class="language-java">put</code> methods becomes <strong>O(n)</strong>. Because of that, class  <code class="language-java">HashMap</code> was upgraded.  Since Java 8, it provides the <em>collision resolution mechanism</em>. If linked lists are too long then <code class="language-java">HashMap</code> changes their structure: all linked lists become balanced trees.  The new complexity is <strong>O(log(n))</strong>.</p>
+<p>Finally, it's important to note that <code class="language-java">HashMap</code> can change the number of buckets. If there are too many pairs in your buckets <code class="language-java">HashMap</code> will change its size to a bigger one. It will transfer all your previous elements to the new version of itself. That, unfortunately, will take some time. And the more elements there are the longer transferring will take. The moment when <code class="language-java">HashMap</code> resizes depends on its load factor. The default load factor is <code class="language-java">0.75</code> and you can define a different one in the constructor: <code class="language-java">HashMap(int initialCapacity, float loadFactor)</code>. When the number of entries in <code class="language-java">HashMap</code> exceeds a certain threshold calculated as <strong>current capacity * load factor</strong>, <code class="language-java">HashMap</code> increases its capacity.</p>
+<h5 id="more-about-comparisons">More about comparisons</h5>
+<p>When you add an object to <code class="language-java">HashMap</code>, the hash code in the <code class="language-java">Node</code> structure is calculated only once and can't be changed after. Let's consider a simple example: you want to find an object by a key (in other words, perform a <code class="language-java" style="color: #a03881;">get</code> operation):</p>
+<ul>
+<li>First, your own hashcode of the key will be compared with the hash code in the <code class="language-java">Node</code> structure.</li>
+<li>Only if the hashcodes match, the <code class="language-java">equals</code> method will be executed for the keys for the final decision.</li>
+</ul>
+<p>Here comes a tricky moment. You've created a <code class="language-java">HashMap</code> and filled it:</p>
+<pre><code class="language-java">Map&lt;BigComplexClass, Integer&gt; map = new HashMap&lt;&gt;();
+map.put(bigKey, 123); // bigKey is an instance of BigComplexClass</code></pre>
+<p>Then, you update the state of <code class="language-java">bigKey</code> (for example, a field in it). What will happen if you try <code class="language-java">map.get(bigKey)</code>? You won't find it in a <code class="language-java">map</code>. And there are the two reasons why: you either miss it because the updated hash code of <code class="language-java">bigKey</code> doesn't match the hash code in <code class="language-java">Node</code>, or, if the hash code hasn't changed, the second step with the <code class="language-java">equals</code> method will give "false".</p>
+<h5 id="when-to-use-it">When to use it?</h5>
+<p>The short answer to the question in the title is if you need to store key-value pairs and want the mutable implementation of the <code class="language-java">Map</code> interface. <code class="language-java">HashMap</code> class is often used in practice since it is highly optimized for accessing elements. Also, iteration over <code class="language-java">HashMap</code> is highly effective.</p>
+<p>And what about the disadvantages? Well, nobody's perfect. There is no way to avoid collisions. The size of <code class="language-java">HashMap</code> may increase so that it will take some time to transfer all the elements.</p>
+<p>At last, remember, that <code class="language-java">HashMap</code> class makes no guarantees as to the order of the map. It also does not guarantee that the order will remain constant over time.</p>
